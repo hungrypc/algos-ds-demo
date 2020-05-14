@@ -2,7 +2,7 @@ import React from 'react'
 
 function Graphs() {
   return (
-    <div>
+    <div className="graphs page">
       Graphs
     </div>
   )

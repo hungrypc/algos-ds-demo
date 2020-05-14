@@ -1,5 +1,8 @@
-@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);
+// Base
+@import './base.scss';
 
-.demo {
-  font-family: 'Fira Code', monospace;
-}
+// Home
+@import './home/base.scss';
+
+// Patterns
+@import './patterns/base.scss';
