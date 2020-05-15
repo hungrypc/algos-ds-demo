@@ -32,3 +32,15 @@
 .step-buttons {
   width: 100%;
   text-align: center; }
+
+.explanation {
+  font-size: 16px;
+  animation: fadeIn 1s ease; }
+  .explanation__header {
+    color: #666; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }

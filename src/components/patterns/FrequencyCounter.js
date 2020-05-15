@@ -1,11 +1,12 @@
 import React, { useState, Fragment } from 'react';
+import Explanation from '../Explanation';
 import Code from '../Code';
 
 function FrequencyCounter() {
   const [highlight, setHighlight] = useState("");
   const [idx, setIdx] = useState(0);
   const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "8", "8", "8", "10, 11, 12", "11", "11", "11"]
-  const explanation = {
+  const explanationText = {
     0: "",
     1: "First, check if the length of arr1 is equal to the length of arr2. The condition for returning true cannot happen if both elements don't have the same number of elements, so we return false if that is the case.",
     2: "Initialize two object variables in preparation to keep track of each value in both arrays. These will be our frequency counters.",
@@ -53,7 +54,6 @@ function FrequencyCounter() {
   }
 
   function onPrev() {
-    console.log(idx)
     if (idx > 0 && idx <= highlightArr.length) {
       let temp = idx;
       temp -= 1
@@ -86,10 +86,8 @@ function FrequencyCounter() {
               <Code code={code} highlight={highlight} />
             </div>
             <div className="column">
-              <p>{explanation[idx]}</p>
-              <p></p>
-              <p></p>
-              <p></p>
+              <h3 className="explanation__header">Explanation:</h3>
+              <Explanation explanationText={explanationText[idx]}/>
             </div>
           </div>
         </div>
