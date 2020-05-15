@@ -2,19 +2,18 @@ import React from 'react';
 import Breakdown from '../Breakdown';
 
 function FrequencyCounter() {
-  const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "8", "8", "8", "10, 11, 12", "11", "11", "11"];
+  const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "8", "10, 11, 12", "13", "14, 15, 16", "17, 18, 19", "21"];
   const explanationText = {
     0: "",
     1: "First, check if the length of arr1 is equal to the length of arr2. The condition for returning true cannot happen if both elements don't have the same number of elements, so we return false if that is the case.",
     2: "Initialize two object variables in preparation to keep track of each value in both arrays. These will be our frequency counters.",
-    3: "Now that we have our frequency counters set up, we can start putting them to use. We'll start by iterating through arr1.",
-    4: "As we iterate through every element in arr1, we can keep track of its value by storing it in our frequencyCount1 object.",
-    5: "As we iterate through every element in arr1, we can keep track of its value by storing it in our frequencyCount1 object.",
-    6: "As we iterate through every element in arr1, we can keep track of its value by storing it in our frequencyCount1 object.",
-    7: "We then do the same with arr2, this time keeping track of each value by storing it in our frequencyCount2 object.",
-    8: "We then do the same with arr2, this time keeping track of each value by storing it in our frequencyCount2 object.",
-    9: "We then do the same with arr2, this time keeping track of each value by storing it in our frequencyCount2 object.",
-    10: "We then do the same with arr2, this time keeping track of each value by storing it in our frequencyCount2 object.",
+    3: "Now that we have our frequency counters set up, we can start putting them to use by iterating through arr1.",
+    4: "As we loop through every element in arr1, we can keep track of its value by storing it in our frequencyCount1 object.",
+    5: "We then do the same with arr2, this time keeping track of each value of arr2 by storing it in our frequencyCount2 object.",
+    6: "For the last step, we'll loop through each key in our frequencyCount1 object to check for the conditions for the function to return true.",
+    7: "If the key's value squared does not exist in the frequencyCount2 object, then there's no point in continuing so we immediately return false.",
+    8: "If there are two elements with the same value in arr1, there needs to be two elements in arr2 with that value squared. So, if the values don't correspond, we return false.",
+    9: "Finally, if we haven't hit any conditions that return false, we reach the end of the code and return true."
   };
 
   const code = `function same(arr1, arr2) {
@@ -65,7 +64,12 @@ function FrequencyCounter() {
         nextClick={nextClick}
         prevClick={prevClick}
       >
-        <div>testing testing</div>
+        <div className="explanation__visual">
+          <div>same([1, 2, 3], [4, 1, 9]);</div>
+          <div>
+
+          </div>
+        </div>
       </Breakdown>
   )
 };
