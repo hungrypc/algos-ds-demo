@@ -4,6 +4,18 @@
   font-family: 'Fira Code', monospace;
 }
 
+.prompt {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: .03fr .97fr;
+  color: #666;
+
+  i {
+    font-size: 18px;
+    color: #000;
+  }
+}
+
 .step-buttons {
   width: 100%;
   text-align: center;

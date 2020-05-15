@@ -2,7 +2,8 @@
 .App {
   display: block;
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  font-size: 15px; }
 
 .nav {
   font-size: 16px !important;
@@ -18,6 +19,15 @@
 
 .demo {
   font-family: 'Fira Code', monospace; }
+
+.prompt {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: .03fr .97fr;
+  color: #666; }
+  .prompt i {
+    font-size: 18px;
+    color: #000; }
 
 .step-buttons {
   width: 100%;
