@@ -1,11 +1,8 @@
-import React, { useState, Fragment } from 'react';
-import Explanation from '../Explanation';
-import Code from '../Code';
+import React from 'react';
+import Breakdown from '../Breakdown';
 
 function FrequencyCounter() {
-  const [highlight, setHighlight] = useState("");
-  const [idx, setIdx] = useState(0);
-  const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "8", "8", "8", "10, 11, 12", "11", "11", "11"]
+  const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "8", "8", "8", "10, 11, 12", "11", "11", "11"];
   const explanationText = {
     0: "",
     1: "First, check if the length of arr1 is equal to the length of arr2. The condition for returning true cannot happen if both elements don't have the same number of elements, so we return false if that is the case.",
@@ -18,7 +15,7 @@ function FrequencyCounter() {
     8: "We then do the same with arr2, this time keeping track of each value by storing it in our frequencyCount2 object.",
     9: "We then do the same with arr2, this time keeping track of each value by storing it in our frequencyCount2 object.",
     10: "We then do the same with arr2, this time keeping track of each value by storing it in our frequencyCount2 object.",
-  }
+  };
 
   const code = `function same(arr1, arr2) {
   if (arr1.length !== arr2.length) {
@@ -44,64 +41,33 @@ function FrequencyCounter() {
   }
   `;
 
-  function onNext() {
-    if (idx >= 0 && idx < highlightArr.length - 1) {
-      let temp = idx;
-      temp += 1
-      setIdx(temp)
-      setHighlight(highlightArr[temp])
-    }
-  }
+  const brief = "This is when we use objects or sets to keep track of certain values or the frequencies of those values.";
 
-  function onPrev() {
-    if (idx > 0 && idx <= highlightArr.length) {
-      let temp = idx;
-      temp -= 1
-      setIdx(temp)
-      setHighlight(highlightArr[temp])
-    }
-  }
+  const prompt = `Write a function called same, which accepts two arrays.
+  The function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.`;
+
+  function nextClick(idx) {
+    console.log(`current index: ${idx}`)
+  };
+
+  function prevClick(idx) {
+    console.log(`current index: ${idx}`)
+  };
 
   return (
-    <Fragment>
-      <h1 className="ui dividing header page-header">
-        Problem Solving Patterns
-      </h1>
-      <div className="ui container">
-        <h2 className="ui block header">
-          Frequency Counter
-        </h2>
-        <div>
-          This is when we use objects or sets to keep track of certain values or the frequencies of those values.
-        </div>
-        <div className="prompt">
-          <i className="far fa-hand-point-right"></i>
-          <div>
-            Write a function called same, which accepts two arrays. <br/> The function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.
-          </div>
-        </div>
-        <div className="ui segment">
-          <div className="ui two column grid">
-            <div className="column demo">
-              <Code code={code} highlight={highlight} />
-            </div>
-            <div className="column">
-              <h3 className="explanation__header">Explanation:</h3>
-              <Explanation explanationText={explanationText[idx]}/>
-            </div>
-          </div>
-        </div>
-        <div className="step-buttons">
-          <button className="ui left attached button" onClick={() => onPrev()}>
-            <i className="left arrow icon"></i>
-          </button>
-          <button className="ui right attached button" onClick={() => onNext()}>
-            <i className="right arrow icon"></i>
-          </button>
-        </div>
-      </div>
-    </Fragment>
+      <Breakdown 
+        title="Frequency Counter"
+        brief={brief}
+        prompt={prompt}
+        code={code} 
+        explanationText={explanationText} 
+        highlightArr={highlightArr} 
+        nextClick={nextClick}
+        prevClick={prevClick}
+      >
+        <div>testing testing</div>
+      </Breakdown>
   )
-}
+};
 
-export default FrequencyCounter
+export default FrequencyCounter;

@@ -6,7 +6,12 @@ function Patterns() {
 
   return (
     <div className="patterns page ui container padded">
-      <FreqCount/>
+      <h1 className="ui dividing header page-header">
+        Problem Solving Patterns
+      </h1>
+      <div className="ui container">
+        <FreqCount/>
+      </div>
     </div>
   )
 }

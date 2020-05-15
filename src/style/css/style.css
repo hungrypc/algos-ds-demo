@@ -24,7 +24,8 @@
   margin: 10px 0;
   display: grid;
   grid-template-columns: .03fr .97fr;
-  color: #666; }
+  color: #666;
+  white-space: pre-line; }
   .prompt i {
     font-size: 18px;
     color: #000; }
