@@ -1,18 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import QuickSort from '../components/sorts/QuickSort';
 
 function Sorts() {
+
+  const [run, setRun] = useState(false);
+
   let values = [];
-  let states = [];
   let w = 10;
 
   values = new Array(Math.floor(330 / w));
   for (let i = 0; i < values.length; i++) {
-    values[i] = Math.random(250);
-    states[i] = -1;
+    values[i] = Math.random() * (250 - 1) + 1;
   }
-  console.log(values)
+  
 
   return (
     <div className="sorts page ui container padded">
@@ -20,12 +21,15 @@ function Sorts() {
         Sorting Algorithms
       </h1>
       <div className="sorts__control">
-
+        <button className="ui button" onClick={() => setRun(true)}>
+          <i className="play icon"></i>
+          Play
+        </button>
       </div>
       <div className="ui three column grid">
         <div className="row">
           <div className="column">
-            <QuickSort />
+            <QuickSort values={values} run={run} />
           </div>
           <div className="column"> row 1 col 2</div>
           <div className="column"> row 1 col 3</div>

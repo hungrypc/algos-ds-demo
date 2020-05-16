@@ -7,4 +7,9 @@
   .column {
     padding: 0 10px !important;
   }
+
+  &__container {
+    border: 1px solid #000;
+    overflow:hidden;
+  }
 }
