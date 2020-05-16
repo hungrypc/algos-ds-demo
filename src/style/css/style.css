@@ -2,7 +2,8 @@
   display: block;
   width: 100vw;
   height: 100vh;
-  font-size: 15px; }
+  font-size: 15px;
+  overflow: auto; }
 
 .nav {
   font-size: 16px !important;
@@ -41,18 +42,28 @@
   text-align: center; }
 
 .explanation {
-  min-height: 100px;
+  min-height: 70px;
   font-size: 16px;
   animation: fadeIn 1s ease; }
   .explanation__header {
     color: #666; }
   .explanation__visual {
     font-family: FiraCode, monospace;
+    height: 60%;
     width: 100%;
-    text-align: center; }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; }
 
 @keyframes fadeIn {
   from {
     opacity: 0; }
   to {
     opacity: 1; } }
+
+.sorts__control {
+  width: 100%;
+  height: 100px; }
+
+.sorts .column {
+  padding: 0 10px !important; }

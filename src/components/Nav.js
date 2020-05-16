@@ -12,6 +12,7 @@ const Nav = () => {
             <i className="dropdown icon"></i>
           <div className="menu">
             <Link className="item" to="/patterns">Patterns</Link>
+            <Link className="item" to="/sorts">Sorts</Link>
           </div>
         </div>
         <div className="ui simple dropdown item">

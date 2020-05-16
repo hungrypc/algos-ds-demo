@@ -21,8 +21,7 @@
 }
 
 .explanation {
-  min-height: 100px;
-  // background-color: azure;
+  min-height: 70px;
   font-size: 16px;
   animation: fadeIn 1s ease;
 
@@ -32,8 +31,12 @@
 
   &__visual {
     font-family: FiraCode, monospace;
+    height: 60%;
     width: 100%;
-    text-align: center;
+    // text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 }
 

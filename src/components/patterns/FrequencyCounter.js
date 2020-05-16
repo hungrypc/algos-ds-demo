@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import P5Wrapper from 'react-p5-wrapper';
 import Breakdown from '../Breakdown';
 
 function FrequencyCounter() {
+  const [currentIdx, setCurrentIdx] = useState(0)
+
   const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "8", "10, 11, 12", "13", "14, 15, 16", "17, 18, 19", "21"];
   const explanationText = {
     0: "",
@@ -45,12 +48,34 @@ function FrequencyCounter() {
   const prompt = `Write a function called same, which accepts two arrays.
   The function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.`;
 
+  function sketch(p) {
+    let arr1 = "arr1 = [1, 2, 3]"
+    let arr2 = "arr2 = [4, 1, 9]"
+
+    p.setup = function () {
+      p.createCanvas(500, 200);
+      p.textFont("monospace")
+      p.textSize(16)
+    };
+    
+    p.draw = function () {
+      p.background(255)
+      p.text(arr1, 0, 15)
+      p.text(arr2, 180, 15)
+      if (currentIdx > 1){
+        p.text('test', 100, 50)
+      }
+    };
+  };
+
   function nextClick(idx) {
     console.log(`current index: ${idx}`)
+    setCurrentIdx(idx)
   };
 
   function prevClick(idx) {
     console.log(`current index: ${idx}`)
+    setCurrentIdx(idx)
   };
 
   return (
@@ -67,7 +92,7 @@ function FrequencyCounter() {
         <div className="explanation__visual">
           <div>same([1, 2, 3], [4, 1, 9]);</div>
           <div>
-
+            <P5Wrapper sketch={sketch} />
           </div>
         </div>
       </Breakdown>

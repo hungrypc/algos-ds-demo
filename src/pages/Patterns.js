@@ -11,6 +11,7 @@ function Patterns() {
       </h1>
       <div className="ui container">
         <FreqCount/>
+        {/* <FreqCount/> */}
       </div>
     </div>
   )
