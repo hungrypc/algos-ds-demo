@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import QuickSort from '../components/sorts/QuickSort';
 import BubbleSort from '../components/sorts/BubbleSort';
 import SelectionSort from '../components/sorts/SelectionSort';
+import InsertionSort from '../components/sorts/InsertionSort';
 
 function Sorts() {
 
@@ -56,7 +57,9 @@ function Sorts() {
           <div className="column">
             <SelectionSort values={values} run={run} />
           </div>
-          <div className="column"> row 1 col 3</div>
+          <div className="column">
+            <InsertionSort values={values} run={run} />
+          </div>
         </div>
         <div className="row">
           <div className="column">row 2 col 1</div>

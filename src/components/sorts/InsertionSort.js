@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
 
-function BubbleSort(props) {
+function InsertionSort(props) {
   const [values, setValues] = useState(props.values)
 
   function sketch(p) {
@@ -10,48 +10,40 @@ function BubbleSort(props) {
 
     p.setup = function () {
       p.createCanvas(330, 250);
-
       for (let i = 0; i < a.length; i++) {
         states[i] = -1;
       }
       if (props.run) {
-        let what = bubbleSort(a)
-        console.log(what)
+        insertionSort(a)
       }
-
     };
 
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    async function bubbleSort(arr) {
-      let noSwaps;
-      for (let i = arr.length; i > 0; i--) {
-        noSwaps = true;
-        for (let j = 0; j < i - 1; j++) {
+    async function insertionSort(arr) {
+      for (let i = 1; i < arr.length; i++) {
+        let curr = arr[i];
+        states[i] = 2;
+        // can someone explain why this works? j should be outside of scope. is it because of var???
+        for (var j = i - 1; j >= 0 && arr[j] > curr; j--) {
+          await sleep(50)
+          arr[j + 1] = arr[j];
           states[j] = 0
-          states[j + 1] = 0
-          if (arr[j] > arr[j + 1]) {
-            await sleep(50)
-            // states[j + 1] = 0
-            let temp = arr[j];
-            arr[j] = arr[j + 1];
-            arr[j + 1] = temp;
-            // states[j + 1] = -1
-            noSwaps = false;
+          if (j + 1 !== i){
+            states[j + 1] = -1
           }
-          states[j] = -1
-          states[j + 1] = 1
+
         }
+        arr[j + 1] = curr;
+
+        states[j + 1] = 1
         states[i] = -1
-        if (noSwaps){
-          // find better solution
-          for (let i = arr.length; i >= 0; i--) {
-            states[i] = -1
-          }
-          break;
-        }       
+
+      }
+      for (let i = 0; i < arr.length; i++) {
+        states[i] = -1
       }
       return arr;
     }
@@ -77,11 +69,10 @@ function BubbleSort(props) {
   useEffect(() => {
     // setValues(props.values)
   }, [props.values])
-
   return (
     <Fragment>
       <h3 className="ui top attached header">
-        Bubble Sort
+        Insertion Sort
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">
@@ -92,4 +83,4 @@ function BubbleSort(props) {
   )
 }
 
-export default BubbleSort
+export default InsertionSort
