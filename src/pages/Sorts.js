@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import QuickSort from '../components/sorts/QuickSort';
 import BubbleSort from '../components/sorts/BubbleSort';
+import SelectionSort from '../components/sorts/SelectionSort';
 
 function Sorts() {
 
@@ -10,10 +11,10 @@ function Sorts() {
 
   let values = [];
   let w = 10;
-  values = new Array(Math.floor(330 / w));
-  for (let i = 0; i < values.length; i++) {
-    values[i] = Math.random() * (250 - 1) + 1;
-  }
+  // values = new Array(Math.floor(330 / w));
+  // for (let i = 0; i < values.length; i++) {
+  //   values[i] = Math.random() * (250 - 1) + 1;
+  // }
 
   function createArray() {
     values = new Array(Math.floor(330 / w));
@@ -21,6 +22,7 @@ function Sorts() {
       values[i] = Math.random() * (250 - 1) + 1;
     }
   }
+  createArray()
 
 
   useEffect(() => {
@@ -41,7 +43,7 @@ function Sorts() {
         <button class="ui button" onClick={() => {
           setRun(false)
           setTest(!test)
-          }}>
+        }}>
           <i class="shuffle icon"></i>
           Shuffle
         </button>
@@ -49,16 +51,18 @@ function Sorts() {
       <div className="ui three column grid">
         <div className="row">
           <div className="column">
-            <QuickSort values={values} run={run} />
+            <BubbleSort values={values} run={run} />
           </div>
           <div className="column">
-            <BubbleSort values={values} run={run} />
+            <SelectionSort values={values} run={run} />
           </div>
           <div className="column"> row 1 col 3</div>
         </div>
         <div className="row">
           <div className="column">row 2 col 1</div>
-          <div className="column">row 2 col 2</div>
+          <div className="column">
+            <QuickSort values={values} run={run} />
+          </div>
           <div className="column">row 2 col 3</div>
         </div>
       </div>

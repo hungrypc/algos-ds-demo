@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
 
-function BubbleSort(props) {
+function SelectionSort(props) {
   const [values, setValues] = useState(props.values)
 
   function sketch(p) {
@@ -10,48 +10,38 @@ function BubbleSort(props) {
 
     p.setup = function () {
       p.createCanvas(330, 250);
-
       for (let i = 0; i < a.length; i++) {
         states[i] = -1;
       }
       if (props.run) {
-        let what = bubbleSort(a)
-        console.log(what)
+        selectionSort(a)        
       }
-
     };
 
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    async function bubbleSort(arr) {
-      let noSwaps;
-      for (let i = arr.length; i > 0; i--) {
-        noSwaps = true;
-        for (let j = 0; j < i - 1; j++) {
+    async function selectionSort(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        let lowest = i;
+        for (let j = i + 1; j <  arr.length; j++) {
+          await sleep(50)
           states[j] = 0
-          states[j + 1] = 0
-          if (arr[j] > arr[j + 1]) {
-            await sleep(50)
-            // states[j + 1] = 0
-            let temp = arr[j];
-            arr[j] = arr[j + 1];
-            arr[j + 1] = temp;
-            // states[j + 1] = -1
-            noSwaps = false;
-          }
-          states[j] = -1
-          states[j + 1] = 1
+          if (arr[j] < arr[lowest]) {
+            lowest = j;
+          }          
+          states[j - 1] = -1
         }
-        states[i] = -1
-        if (noSwaps){
-          // find better solution
-          for (let i = arr.length; i >= 0; i--) {
-            states[i] = -1
-          }
-          break;
-        }       
+        if (i !== lowest) {
+          //swap
+          let temp = arr[i];
+          arr[i] = arr[lowest];
+          arr[lowest] = temp;
+        }
+        states[i] = 1
+        states[i - 1] = -1
+        states[arr.length - 1] = -1
       }
       return arr;
     }
@@ -60,7 +50,6 @@ function BubbleSort(props) {
     p.draw = function () {
       p.background(0)
       for (let i = 0; i < a.length; i++) {
-        // p.noStroke();
         if (states[i] === 0) {
           p.fill('#E0777D');
         } else if (states[i] === 1) {
@@ -78,11 +67,10 @@ function BubbleSort(props) {
   useEffect(() => {
     // setValues(props.values)
   }, [props.values])
-
   return (
     <Fragment>
       <h3 className="ui top attached header">
-        Bubble Sort
+        Selection Sort
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">
@@ -93,4 +81,4 @@ function BubbleSort(props) {
   )
 }
 
-export default BubbleSort
+export default SelectionSort
