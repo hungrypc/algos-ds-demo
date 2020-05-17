@@ -21,24 +21,20 @@ function MergeSort(props) {
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
-
+    
     async function merge(arr1, arr2) {
-      for (let i = 0; i < arr1.length + arr2.length; i++) {
-        await sleep(500)
-        a.shift()
-      }
-
       let results = [];
       let i = 0;
       let j = 0;
       while (i < arr1.length && j < arr2.length) {
-        if (arr1[i] < arr2[j]) {  
-          // await sleep(100)        
+        await sleep(50) 
+        if (arr1[i] < arr2[j]) {           
+          a.splice(a.indexOf(arr1[i]), 1)  
           a.push(arr1[i])
           results.push(arr1[i]);
           i++;
-        } else {       
-          // await sleep(100)   
+        } else {                   
+          a.splice(a.indexOf(arr2[j]), 1)
           a.push(arr2[j])
           results.push(arr2[j]);
           j++;
@@ -46,31 +42,35 @@ function MergeSort(props) {
       }
 
       while (i < arr1.length) {        
-        a.push(arr1[i])
+        await sleep(50)
+        a.splice(a.indexOf(arr1[i]), 1)
+        a.push(arr1[i])          
         results.push(arr1[i]);
         i++;
       }
 
       while (j < arr2.length) {        
-        a.push(arr2[j])
+        await sleep(50)
+        a.splice(a.indexOf(arr2[j]), 1)
+        a.push(arr2[j])        
         results.push(arr2[j]);
         j++;
       }
-
-      console.log(results)
+      
       return results
     }
-
-    function mergeSort(arr) {
+    
+    async function mergeSort(arr) {
       let temp = Array.from(arr)
       if (arr.length <= 1) {
         return arr;
       }
+      
       let mid = Math.floor(temp.length / 2);
-      let left = mergeSort(temp.slice(0, mid));
-      let right = mergeSort(temp.slice(mid));
+      let left = await mergeSort(temp.slice(0, mid))
+      let right = await mergeSort(temp.slice(mid))
 
-      return merge(left, right);
+      return await merge(left, right)
     }
 
 
