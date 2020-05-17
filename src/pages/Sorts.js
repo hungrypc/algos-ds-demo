@@ -4,6 +4,7 @@ import QuickSort from '../components/sorts/QuickSort';
 import BubbleSort from '../components/sorts/BubbleSort';
 import SelectionSort from '../components/sorts/SelectionSort';
 import InsertionSort from '../components/sorts/InsertionSort';
+import MergeSort from '../components/sorts/MergeSort';
 
 function Sorts() {
 
@@ -41,11 +42,11 @@ function Sorts() {
           <i className="play icon"></i>
           Run Sort
         </button>
-        <button class="ui button" onClick={() => {
+        <button className="ui button" onClick={() => {
           setRun(false)
           setTest(!test)
         }}>
-          <i class="shuffle icon"></i>
+          <i className="shuffle icon"></i>
           Shuffle
         </button>
       </div>
@@ -62,7 +63,9 @@ function Sorts() {
           </div>
         </div>
         <div className="row">
-          <div className="column">row 2 col 1</div>
+          <div className="column">
+            <MergeSort values={values} run={run} />
+          </div>
           <div className="column">
             <QuickSort values={values} run={run} />
           </div>
