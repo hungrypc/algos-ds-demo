@@ -15,8 +15,7 @@ function BubbleSort(props) {
         states[i] = -1;
       }
       if (props.run) {
-        let what = bubbleSort(a)
-        console.log(what)
+        bubbleSort(a)
       }
 
     };
