@@ -21,51 +21,69 @@ function MergeSort(props) {
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
-    
+
     async function merge(arr1, arr2) {
       let results = [];
       let i = 0;
-      let j = 0;
+      let j = 0;      
+      states[a.indexOf(arr1[i])] = 0
+      states[a.indexOf(arr2[j])] = 0   
+             
+      for (let y = 2; y < a.length - (arr1.length + arr2.length); y++) {      
+        states[y] = 2
+      }
+
       while (i < arr1.length && j < arr2.length) {
-        await sleep(50) 
-        if (arr1[i] < arr2[j]) {           
-          a.splice(a.indexOf(arr1[i]), 1)  
+        states[a.indexOf(arr2[j], a.length - (arr1.length + arr2.length))] = -1
+        states[a.indexOf(arr1[i], a.length - (arr1.length + arr2.length))] = -1
+        await sleep(500)
+        if (arr1[i] < arr2[j]) {
+          a.splice(a.indexOf(arr1[i]), 1)
           a.push(arr1[i])
           results.push(arr1[i]);
-          i++;
-        } else {                   
+          states[a.indexOf(arr1[i], 2)] = 1
+          i++;          
+        } else {
           a.splice(a.indexOf(arr2[j]), 1)
           a.push(arr2[j])
           results.push(arr2[j]);
-          j++;
+          states[a.indexOf(arr2[j], 2)] = 1
+          j++;          
         }
       }
 
-      while (i < arr1.length) {        
-        await sleep(50)
+      while (i < arr1.length) {
+        await sleep(500)
         a.splice(a.indexOf(arr1[i]), 1)
-        a.push(arr1[i])          
+        a.push(arr1[i])
         results.push(arr1[i]);
-        i++;
+        states[a.indexOf(arr1[i], 2)] = 1
+        i++;        
       }
 
-      while (j < arr2.length) {        
-        await sleep(50)
+      while (j < arr2.length) {
+        await sleep(500)
         a.splice(a.indexOf(arr2[j]), 1)
-        a.push(arr2[j])        
+        a.push(arr2[j])
         results.push(arr2[j]);
-        j++;
+        states[a.indexOf(arr2[j], 2)] = 1
+        j++;        
       }
-      
+      for (let x = a.length - 2; x >= a.length - results.length - (Math.max(i, j)); x--) {
+        states[x] = -1
+      }
       return results
     }
-    
+
     async function mergeSort(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        states[i] = 2
+      }
       let temp = Array.from(arr)
       if (arr.length <= 1) {
         return arr;
       }
-      
+
       let mid = Math.floor(temp.length / 2);
       let left = await mergeSort(temp.slice(0, mid))
       let right = await mergeSort(temp.slice(mid))
