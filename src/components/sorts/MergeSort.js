@@ -22,21 +22,25 @@ function MergeSort(props) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    let count = 0;
+
     async function merge(arr1, arr2) {
       let results = [];
       let i = 0;
       let j = 0;      
-      states[a.indexOf(arr1[i])] = 0
-      states[a.indexOf(arr2[j])] = 0   
-             
-      for (let y = 2; y < a.length - (arr1.length + arr2.length); y++) {      
+      count++
+      states[a.indexOf(arr2[j])] = 0
+      states[a.indexOf(arr1[i])] = 0   
+      states[a.indexOf(arr2[j], a.length - 1 - count)] = -1
+      states[a.indexOf(arr1[i], a.length - 1 - count)] = -1
+
+      for (let y = 2; y < a.length - count; y++) {      
         states[y] = 2
       }
 
       while (i < arr1.length && j < arr2.length) {
-        states[a.indexOf(arr2[j], a.length - (arr1.length + arr2.length))] = -1
-        states[a.indexOf(arr1[i], a.length - (arr1.length + arr2.length))] = -1
-        await sleep(500)
+
+        await sleep(50)
         if (arr1[i] < arr2[j]) {
           a.splice(a.indexOf(arr1[i]), 1)
           a.push(arr1[i])
@@ -53,7 +57,7 @@ function MergeSort(props) {
       }
 
       while (i < arr1.length) {
-        await sleep(500)
+        await sleep(50)
         a.splice(a.indexOf(arr1[i]), 1)
         a.push(arr1[i])
         results.push(arr1[i]);
@@ -62,16 +66,18 @@ function MergeSort(props) {
       }
 
       while (j < arr2.length) {
-        await sleep(500)
+        await sleep(50)
         a.splice(a.indexOf(arr2[j]), 1)
         a.push(arr2[j])
         results.push(arr2[j]);
         states[a.indexOf(arr2[j], 2)] = 1
         j++;        
       }
-      for (let x = a.length - 2; x >= a.length - results.length - (Math.max(i, j)); x--) {
+      for (let x = a.length; x >= a.length - count; x--) {
         states[x] = -1
       }
+      // console.log(a.length - results.length - (Math.max(i, j)) + 1)
+      console.log(count)
       return results
     }
 
