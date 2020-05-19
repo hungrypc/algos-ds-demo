@@ -22,11 +22,13 @@ function RadixSort(props) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    // counts the number of digits in the number
     function digitCount(num) {
       if (num === 0) return 1;
       return Math.floor(Math.log10(Math.abs(num))) + 1;
     }
 
+    
     function mostDigits(nums) {
       let maxDigits = 0;
       for (const n of nums) {
