@@ -1,6 +1,7 @@
 import React from 'react'
 
 import FreqCount from '../components/patterns/FrequencyCounter';
+import MultiplePointers from '../components/patterns/MultiplePointers';
 
 function Patterns() {
 
@@ -11,7 +12,7 @@ function Patterns() {
       </h1>
       <div className="ui container">
         <FreqCount/>
-        {/* <FreqCount/> */}
+        <MultiplePointers />
       </div>
     </div>
   )

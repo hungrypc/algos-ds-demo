@@ -46,7 +46,7 @@ function FrequencyCounter() {
   }
   `;
 
-  const brief = "This is when we use objects or sets to keep track of certain values or the frequencies of those values.";
+  const brief = "Using objects or sets to keep track of certain values or the frequencies of those values.";
 
   const prompt = `Write a function called same, which accepts two arrays.
   The function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.`;

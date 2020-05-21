@@ -39,7 +39,8 @@
 
 .step-buttons {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 20px; }
 
 .explanation {
   min-height: 70px;
