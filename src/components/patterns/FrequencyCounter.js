@@ -43,7 +43,7 @@ function FrequencyCounter() {
     }
   }
   return true;
-  }
+}
   `;
 
   const brief = "Using objects or sets to keep track of certain values or the frequencies of those values.";
@@ -55,11 +55,11 @@ function FrequencyCounter() {
   //   return new Promise(resolve => setTimeout(resolve, ms));
   // }
 
-  let x = 82;
-
+  
   function sketch(p) {
-    let arr1 = "[1, 2, 3]"
-    let arr2 = "[4, 1, 9]"
+    let arr1 = "[1, 2, 3, 2]"
+    let arr2 = "[4, 1, 4, 9]"
+    let x = 65;
 
     p.setup = function () {
       p.createCanvas(500, 200);
@@ -72,29 +72,41 @@ function FrequencyCounter() {
       p.fill(0)
       if (currentIdx > 0) {
         p.text(`arr1 = ${arr1}`, 0, 15)
-        p.text(`arr2 = ${arr2}`, 180, 15)        
+        p.text(`arr2 = ${arr2}`, 200, 15)
       }
       if (currentIdx > 1) {
         p.text('frequencyCount1 = {              }', 0, 55)
         p.text('frequencyCount2 = {              }', 0, 95)
       }
-      if (currentIdx > 2) {           
+      if (currentIdx > 2) {
         p.noStroke()
         p.fill(19, 194, 194);
         p.ellipse(x, 25, 7, 7);
-      }    
-      if (currentIdx >= 3) {
-        x = 82
-        p.fill(0)
-        p.text('1:1,', 190, 56)
+      }
+      if (currentIdx === 3) {
+        if (x >= 60 && x <= 168) {
+          x += 1
+        }
+        if (x >= 82) {
+          p.fill(0)
+          p.text('1:1,', 190, 56)
+        }
+        if (x >= 110 && x <= 166) {
+          p.text('2:1,', 235, 56)
+        }
+        if (x >= 140) {
+          p.text('3:1', 280, 56)
+        }
+        if (x >= 167) {
+          p.text('2:2,', 235, 56)
+        }
+
       }
       if (currentIdx >= 4) {
         x = 110
-        p.text('2:1,', 235, 56)
       }
       if (currentIdx >= 5) {
         x = 140
-        p.text('3:1', 280, 56)
       }
       if (currentIdx >= 6) {
         x = 262.7
@@ -133,7 +145,7 @@ function FrequencyCounter() {
       prevClick={prevClick}
     >
       <div className="explanation__visual">
-        <div>e.g. same([1, 2, 3], [4, 1, 9]);</div>
+        <div>e.g. same([1, 2, 3, 2], [4, 1, 4, 9]);</div>
         <div>
           <P5Wrapper sketch={sketch} />
         </div>

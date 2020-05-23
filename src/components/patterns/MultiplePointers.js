@@ -5,25 +5,25 @@ import Breakdown from '../Breakdown';
 function MultiplePointers() {
   const [currentIdx, setCurrentIdx] = useState(0)
 
-  const highlightArr = ["",];
+  const highlightArr = ["", "2, 3", "4, 9, 11", "5", "6, 7", "8, 9", "10, 11"];
   const explanationText = {
     0: "",
   };
 
-  const code = `function sunZero(arr) {
-    let left = 0;               // pointer 1
-    let right = arr.length - 1; // pointer 2
-    while (left < right) {
-      let sum = arr[left] + arr[right];
-      if (sum === 0) {
-        return [arr[left], arr[right]];
-      } else if (sum > 0) {
-        right --;
-      } else {
-        left ++;
-      }
+  const code = `function sumZero(arr) {
+  let left = 0;               // pointer 1
+  let right = arr.length - 1; // pointer 2
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === 0) {
+      return [arr[left], arr[right]];
+    } else if (sum > 0) {
+      right --;
+    } else {
+      left ++;
     }
   }
+}
   `;
 
   const brief = "Creating pointers of values that correspond to an index/position and move towards the beginning, end, or middle based on a certain condition.";
@@ -34,8 +34,10 @@ function MultiplePointers() {
   //   return new Promise(resolve => setTimeout(resolve, ms));
   // }
 
-
+  
   function sketch(p) {
+    let leftX = 0;
+    let rightX = 0;
 
     p.setup = function () {
       p.createCanvas(500, 200);
@@ -44,6 +46,23 @@ function MultiplePointers() {
     };
 
     p.draw = async function () {
+      p.background(255)
+      p.fill(0)
+      if (currentIdx >= 1) {
+        if (currentIdx <= 4) {
+          leftX = 60
+          rightX = 249
+        }
+        p.text("[-2, -1, 0, 1, 2, 3, 4]", 45, 35)
+        p.text("L", leftX, 60)
+        p.text("R", rightX, 60)
+      }
+      if (currentIdx >= 3) {
+        p.text("sum =", 50, 100)
+        if (currentIdx <= 5) {
+          p.text("-2", 108, 100)
+        }
+      }
     }
   };
 
@@ -69,7 +88,7 @@ function MultiplePointers() {
       prevClick={prevClick}
     >
       <div className="explanation__visual">
-        <div>e.g. sumZero([-3, -2, -1, 0, 1, 2, 3]);</div>
+        <div>e.g. sumZero([-2, -1, 0, 1, 2, 3, 4]);</div>
         <div>
           <P5Wrapper sketch={sketch} />
         </div>
