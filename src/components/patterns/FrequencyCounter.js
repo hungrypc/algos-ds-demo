@@ -5,21 +5,17 @@ import Breakdown from '../Breakdown';
 function FrequencyCounter() {
   const [currentIdx, setCurrentIdx] = useState(0)
 
-  const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "7, 8, 9", "7, 8, 9", "10, 11, 12", "10, 11, 12", "10, 11, 12", "13", "14, 15, 16", "17, 18, 19", "21"];
+  const highlightArr = ["", "2, 3, 4", "5, 6", "7, 8, 9", "10, 11, 12", "13", "14, 15, 16", "17, 18, 19", "21"];
   const explanationText = {
     0: "",
     1: "First, check if the length of arr1 is equal to the length of arr2. The condition for returning true cannot happen if both elements don't have the same number of elements, so we return false if that is the case.",
     2: "Initialize two object variables in preparation to keep track of each value in both arrays. These will be our frequency counters.",
     3: "Iterate through arr1 so that as we loop through every element, we can keep track of its value by storing it in our frequencyCount1 object.",
-    4: "Iterate through arr1 so that as we loop through every element, we can keep track of its value by storing it in our frequencyCount1 object.",
-    5: "Iterate through arr1 so that as we loop through every element, we can keep track of its value by storing it in our frequencyCount1 object.",
-    6: "We then do the same with arr2, this time keeping track of each value of arr2 by storing it in our frequencyCount2 object.",
-    7: "We then do the same with arr2, this time keeping track of each value of arr2 by storing it in our frequencyCount2 object.",
-    8: "We then do the same with arr2, this time keeping track of each value of arr2 by storing it in our frequencyCount2 object.",
-    9: "For the last step, we'll loop through each key in our frequencyCount1 object to check for the conditions for the function to return true.",
-    10: "If the key's value squared does not exist in the frequencyCount2 object, then there's no point in continuing so we immediately return false.",
-    11: "If there are two elements with the same value in arr1, there needs to be two elements in arr2 with that value squared. So, if the values don't correspond, we return false.",
-    12: "Finally, if we haven't hit any conditions that return false, we reach the end of the code and return true."
+    4: "We then do the same with arr2, this time keeping track of each value of arr2 by storing it in our frequencyCount2 object.",
+    5: "For the last step, we'll loop through each key in our frequencyCount1 object to check for the conditions for the function to return true.",
+    6: "If the key's value squared does not exist in the frequencyCount2 object, then there's no point in continuing so we would immediately return false.",
+    7: "If there are two elements with the same value in arr1, there needs to be two elements in arr2 with that value squared. So, if the values don't correspond, we would return false.",
+    8: "Finally, if we haven't hit any conditions that return false, we reach the end of the code and return true."
   };
 
   const code = `function same(arr1, arr2) {
@@ -55,11 +51,13 @@ function FrequencyCounter() {
   //   return new Promise(resolve => setTimeout(resolve, ms));
   // }
 
-  
+
   function sketch(p) {
     let arr1 = "[1, 2, 3, 2]"
     let arr2 = "[4, 1, 4, 9]"
-    let x = 65;
+    let x = 82;
+    let i = 195;
+    let j = 240;
 
     p.setup = function () {
       p.createCanvas(500, 200);
@@ -80,45 +78,67 @@ function FrequencyCounter() {
       }
       if (currentIdx > 2) {
         p.noStroke()
-        p.fill(19, 194, 194);
+        if (currentIdx < 5) {
+          p.fill(19, 194, 194);
+        } else {
+          p.fill(255);
+        }
         p.ellipse(x, 25, 7, 7);
       }
       if (currentIdx === 3) {
-        if (x >= 60 && x <= 168) {
-          x += 1
+        if (x >= 82 && x <= 167) {
+          if (p.frameCount % 50 === 0) {
+            x += 28.9
+          }
         }
+      }
+      if (currentIdx >= 3) {
+        
+        p.fill(0)
         if (x >= 82) {
-          p.fill(0)
           p.text('1:1,', 190, 56)
         }
         if (x >= 110 && x <= 166) {
           p.text('2:1,', 235, 56)
         }
-        if (x >= 140) {
+        if (x >= 138) {
           p.text('3:1', 280, 56)
         }
         if (x >= 167) {
           p.text('2:2,', 235, 56)
         }
-
+      }
+      if (currentIdx === 4) {
+        if (x < 170) x = 282
+        if (x >= 282 && x <= 368) {
+          if (p.frameCount % 50 === 0) {
+            x += 28.9
+          }
+        }
       }
       if (currentIdx >= 4) {
-        x = 110
+        p.fill(0)
+        if (x >= 282 && x <= 339) {
+          p.text('4:1,', 190, 96)
+        }
+        if (x >= 310) {
+          p.text('1:1,', 235, 96)
+        }
+        if (x >= 339) {
+          p.text('4:2,', 190, 96)
+        }
+        if (x >= 368) {
+          p.text('9:1', 280, 96)
+        }
       }
       if (currentIdx >= 5) {
-        x = 140
+        x += 300
       }
       if (currentIdx >= 6) {
-        x = 262.7
-        p.text('4:1,', 190, 96)
-      }
-      if (currentIdx >= 7) {
-        x = 290.6
-        p.text('1:1,', 235, 96)
-      }
-      if (currentIdx >= 8) {
-        x = 319.5
-        p.text('9:1', 280, 96)
+        p.noStroke()
+        p.fill(19, 194, 194);
+        p.ellipse(i, 66, 7, 7);
+        p.ellipse(j, 106, 7, 7);
       }
     };
   };
