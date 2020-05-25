@@ -58,6 +58,8 @@ function FrequencyCounter() {
     let x = 82;
     let i = 195;
     let j = 240;
+    let g = 215
+    let k = 260
 
     p.setup = function () {
       p.createCanvas(500, 200);
@@ -93,7 +95,7 @@ function FrequencyCounter() {
         }
       }
       if (currentIdx >= 3) {
-        
+
         p.fill(0)
         if (x >= 82) {
           p.text('1:1,', 190, 56)
@@ -134,11 +136,37 @@ function FrequencyCounter() {
       if (currentIdx >= 5) {
         x += 300
       }
-      if (currentIdx >= 6) {
+      // if (currentIdx >= 6) {
+      // }
+      if (currentIdx === 6) {
         p.noStroke()
         p.fill(19, 194, 194);
         p.ellipse(i, 66, 7, 7);
         p.ellipse(j, 106, 7, 7);
+        if (p.frameCount % 50 === 0) {
+          if (i === 195 && j === 240) {
+            i = 240
+            j = 195
+          } else if (i === 240 && j === 195) {
+            i = 285
+            j = 285
+          }
+        }
+      }
+      if (currentIdx === 7) {
+        p.noStroke()
+        p.fill(19, 194, 194);
+        p.ellipse(g, 66, 7, 7);
+        p.ellipse(k, 106, 7, 7);
+        if (p.frameCount % 50 === 0) {
+          if (g === 215 && k === 260) {
+            g = 260
+            k = 215
+          } else if (g === 260 && k === 215) {
+            g = 305
+            k = 305
+          } 
+        }
       }
     };
   };
