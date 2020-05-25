@@ -39,8 +39,7 @@ function FrequencyCounter() {
     }
   }
   return true;
-}
-  `;
+}`;
 
   const brief = "Using objects or sets to keep track of certain values or the frequencies of those values.";
 

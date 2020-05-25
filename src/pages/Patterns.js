@@ -2,6 +2,7 @@ import React from 'react'
 
 import FreqCount from '../components/patterns/FrequencyCounter';
 import MultiplePointers from '../components/patterns/MultiplePointers';
+import SlidingWindow from '../components/patterns/SlidingWindow';
 
 function Patterns() {
 
@@ -13,6 +14,7 @@ function Patterns() {
       <div className="ui container">
         <FreqCount/>
         <MultiplePointers />
+        <SlidingWindow />
       </div>
     </div>
   )

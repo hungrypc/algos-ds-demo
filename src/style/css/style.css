@@ -10,9 +10,9 @@
   height: 55px; }
 
 .page {
-  height: 100%;
   width: 100%;
-  padding-top: 80px; }
+  padding-top: 80px;
+  padding-bottom: 30px; }
 
 .page-header {
   font-size: 2.5rem !important; }
@@ -40,7 +40,7 @@
 .step-buttons {
   width: 100%;
   text-align: center;
-  margin-bottom: 20px; }
+  margin-top: 20px; }
 
 .explanation {
   min-height: 70px;

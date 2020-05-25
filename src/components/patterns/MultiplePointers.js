@@ -28,8 +28,7 @@ function MultiplePointers() {
       left ++;
     }
   }
-}
-  `;
+}`;
 
   const brief = "Creating pointers of values that correspond to an index/position and move towards the beginning, end, or middle based on a certain condition.";
 
@@ -40,7 +39,7 @@ function MultiplePointers() {
     let rightX = 249;
 
     p.setup = function () {
-      p.createCanvas(500, 200);
+      p.createCanvas(500, 150);
       p.textFont("monospace")
       p.textSize(16)
     };

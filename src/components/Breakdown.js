@@ -51,14 +51,14 @@ function Breakdown(props) {
             {props.children}
           </div>
         </div>
-      </div>
-      <div className="step-buttons">
-        <button className="ui left attached button" onClick={() => onPrev()}>
-          <i className="left arrow icon"></i>
-        </button>
-        <button className="ui right attached button" onClick={() => onNext()}>
-          <i className="right arrow icon"></i>
-        </button>
+        <div className="step-buttons">
+          <button className="ui left attached button" onClick={() => onPrev()}>
+            <i className="left arrow icon"></i>
+          </button>
+          <button className="ui right attached button" onClick={() => onNext()}>
+            <i className="right arrow icon"></i>
+          </button>
+        </div>
       </div>
     </Fragment>
   )
