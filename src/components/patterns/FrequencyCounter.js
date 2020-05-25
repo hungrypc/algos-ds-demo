@@ -47,11 +47,6 @@ function FrequencyCounter() {
   const prompt = `Write a function called same, which accepts two arrays.
   The function should return true if every value in the array has its corresponding value squared in the second array. The frequency of values must be the same.`;
 
-  // function sleep(ms) {
-  //   return new Promise(resolve => setTimeout(resolve, ms));
-  // }
-
-
   function sketch(p) {
     let arr1 = "[1, 2, 3, 2]"
     let arr2 = "[4, 1, 4, 9]"
