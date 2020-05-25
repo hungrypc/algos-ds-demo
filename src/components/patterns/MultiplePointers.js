@@ -16,23 +16,23 @@ function MultiplePointers() {
   };
 
   const code = `function sumZero(arr) {
-  let left = 0;               // pointer 1
-  let right = arr.length - 1; // pointer 2
+  let left = 0                // pointer 1
+  let right = arr.length - 1  // pointer 2
   while (left < right) {
-    let sum = arr[left] + arr[right];
+    let sum = arr[left] + arr[right]
     if (sum === 0) {
-      return [arr[left], arr[right]];
+      return [arr[left], arr[right]]
     } else if (sum > 0) {
-      right --;
+      right --
     } else {
-      left ++;
+      left ++
     }
   }
 }`;
 
   const brief = "Creating pointers of values that correspond to an index/position and move towards the beginning, end, or middle based on a certain condition.";
 
-  const prompt = `Write a function  called sumZero which accepts a sorted array of integers. the function should find the first pair where the sum is 0. return an array that includes both values that sum to zero or undefined if a pair does not exist.`;
+  const prompt = `Write a function  called sumZero which accepts a sorted array of integers.  The function should find the first pair where the sum is 0. Return an array that includes both values that sum to zero or undefined if a pair does not exist.`;
 
   function sketch(p) {
     let leftX = 60;
@@ -76,6 +76,7 @@ function MultiplePointers() {
           p.text("1", 108, 100)
         } else if (leftX === 60 && rightX === 189) {
           p.text("0", 108, 100)
+          p.text("result = [0, 4]", 50, 130)
         }
       }
     }

@@ -3,6 +3,7 @@ import React from 'react'
 import FreqCount from '../components/patterns/FrequencyCounter';
 import MultiplePointers from '../components/patterns/MultiplePointers';
 import SlidingWindow from '../components/patterns/SlidingWindow';
+import DivideAndConquer from '../components/patterns/DivideAndConquer';
 
 function Patterns() {
 
@@ -15,6 +16,7 @@ function Patterns() {
         <FreqCount/>
         <MultiplePointers />
         <SlidingWindow />
+        <DivideAndConquer />
       </div>
     </div>
   )
