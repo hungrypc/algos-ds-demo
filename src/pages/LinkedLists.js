@@ -2,7 +2,7 @@ import React from 'react'
 
 function LinkedLists() {
   return (
-    <div>
+    <div className="linked_lists page">
       Linked Lists
     </div>
   )

@@ -19,6 +19,11 @@ const Nav = () => {
           Datastructures
             <i className="dropdown icon"></i>
           <div className="menu">
+            <Link className="item" to="/linkedlists">Linked Lists</Link>
+            <Link className="item" to="/stacksqueues">Stacks and Queues</Link>
+            <Link className="item" to="/trees">Trees</Link>
+            <Link className="item" to="/heaps">Binary Heaps</Link>
+            <Link className="item" to="/hash">Hash Tables</Link>
             <Link className="item" to="/graphs">Graphs</Link>
           </div>
         </div>
