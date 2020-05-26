@@ -10,7 +10,7 @@ function MultiplePointers() {
     0: "",
     1: "Set up a maxSum and tempSum variable to store values to be compared later.",
     2: "If the length of the array is smaller than num, our function won't work, so we return null.",
-    3: "First, loop through the array only up to index num, and set the sum to maxSum. This will be our sliding window.",
+    3: "First, loop through the array only up to index num - 1, and set the sum to maxSum. This will be our sliding window.",
     4: "Set tempSum to be the same value as maxSum. We'll be using this to keep track of what will be happening in our sliding window.",
     5: "Loop through the rest of the array. Instead of re-adding values, subtract the value of the window's first element and add the remainder to the element after the window. Compare and set the higher value to maxSum.",
     6: "Finally, return maxSum."
@@ -60,7 +60,7 @@ function MultiplePointers() {
       if (currentIdx === 3) {
         p.text("^", 10, 105)
         p.text("^", firstLoop, 105)
-        if (p.frameCount % 50 === 0) {
+        if (p.frameCount % 60 === 0) {
           if (firstLoop === 10) {
             firstLoop = 39
           } else if (firstLoop === 39) {
@@ -84,7 +84,7 @@ function MultiplePointers() {
         p.text('8', 100, 45)
       }
       if (currentIdx === 5) {
-        if (p.frameCount % 120 === 0) {
+        if (p.frameCount % 110 === 0) {
           if (window1 === 10) {
             window1 = 39
             window2 = 96
@@ -107,26 +107,26 @@ function MultiplePointers() {
           p.text('9', 90, 20)
           p.text('9', 100, 45)
           p.text('= 9', 215, 120)
-          p.text('-1', 10, 120)
-          p.text('+2', 96, 120)
+          p.text('-1', 8, 120)
+          p.text('+2', 94, 120)
         } else if (window1 === 68) {
           p.text('15', 90, 20)
           p.text('15', 100, 45)
           p.text('= 15', 215, 120)
-          p.text('-2', 39, 120)
-          p.text('+8', 125, 120)
+          p.text('-2', 37, 120)
+          p.text('+8', 122, 120)
         } else if (window1 === 96) {
           p.text('15', 90, 20)
           p.text('11', 100, 45)
           p.text('= 11', 215, 120)
-          p.text('-5', 68, 120)
-          p.text('+1', 155, 120)
+          p.text('-5', 66, 120)
+          p.text('+1', 153, 120)
         } else if (window1 === 125) {
           p.text('15', 90, 20)
           p.text('14', 100, 45)
           p.text('= 14', 215, 120)
-          p.text('-2', 96, 120)
-          p.text('+5', 184, 120)
+          p.text('-2', 94, 120)
+          p.text('+5', 182, 120)
         }
       }
       if (currentIdx === 6) {

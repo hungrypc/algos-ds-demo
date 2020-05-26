@@ -64,7 +64,7 @@ function MultiplePointers() {
         }
       }
       if (currentIdx === 5) {
-        if (p.frameCount % 50 === 0) {
+        if (p.frameCount % 70 === 0) {
           if (leftX === 60 && rightX === 249) {
             rightX = 219
           } else if (leftX === 60 && rightX === 219) {

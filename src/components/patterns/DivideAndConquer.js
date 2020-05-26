@@ -8,6 +8,11 @@ function MultiplePointers() {
   const highlightArr = ["", "2, 3", "5, 10, 12", "6, 7", "9, 10, 11, 12, 13, 14, 15", "18"];
   const explanationText = {
     0: "",
+    1: "Set up our range with variable min being the start of the array and variable max as the end.",
+    2: "Loop while min <= max. As we loop, our range will eventually close in on itself towards the answer.",
+    3: "Set up variable middle to find the middle of our array, and set our middle element to variable currentElement.",
+    4: "If our middle element is smaller than the target we're looking for, the target must be in the left side so we set the range to start from middle + 1 (and vice versa). Otherwise, the middle is the target, so we return middle.",
+    5: "If we loop through the entire array and are unable to find it, return -1"
   };
 
   const code = `function search(arr, val) {
@@ -15,7 +20,7 @@ function MultiplePointers() {
   let max = array.length - 1
 
   while (min <= max) {
-    let middle = Math.floor((min + max) / 2)
+    let middle = Math.floor(min + ((min + max) / 2))
     let currentElement = array[middle]
 
     if (array[middle] < val) {
@@ -36,6 +41,9 @@ function MultiplePointers() {
   If the value is not found, return -1.`;
 
   function sketch(p) {
+    let min = 10
+    let max = 155
+    let middle = 68
 
     p.setup = function () {
       p.createCanvas(500, 150);
@@ -47,7 +55,29 @@ function MultiplePointers() {
       p.background(255)
       p.fill(0)
       if (currentIdx >= 1) {
-
+        p.text('min =', 0, 20)
+        p.text('max =', 0, 45)
+        p.text('[1, 2, 3, 4, 5, 6]', 0, 85)
+        p.text("^", min, 105)
+        p.text("^", max, 105)
+      }
+      if (currentIdx >= 1 && currentIdx <= 3) {
+        p.text('0', 60, 20)
+        p.text('5', 60, 45)
+      }
+      if (currentIdx >= 3) {
+        p.text('m', middle, 115)
+      }
+      if (currentIdx === 4) {
+        if (p.frameCount % 100 === 0) {
+          if (middle === 68) {
+            min = 96
+            middle = 125
+          } else if (middle === 125) {
+            min = 155
+            middle = 155
+          }
+        }
       }
     }
   };
