@@ -77,21 +77,21 @@ function BubbleSort(props) {
   // Modal settings
   const header = "Bubble Sort"
   const code = `function bubbleSort(arr) {
-  let noSwaps;
-  for (let i = arr.length; i > 0; i--) {
-    noSwaps = true;
-    for (let j = 0; j < i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-        noSwaps = false;
+  let noSwaps;              // this will tell us whether a swap has occured or not
+  for (let i = arr.length; i > 0; i--) {    // loop for as many elements are in arr
+    noSwaps = true  
+    for (let j = 0; j < i - 1; j++) {       // loop for as many unsorted elements in arr
+      if (arr[j] > arr[j + 1]) {    // if the current element is larger than the next, swap
+        const temp = arr[j]         
+        arr[j] = arr[j + 1]         // in-place swap
+        arr[j + 1] = temp
+        noSwaps = false             // swap occured, let noSwaps know
       }
     }
-    if (noSwaps) break;
+    if (noSwaps) break;             // if no swaps occured, break out of the loop
   }
-  return arr;
-}`;
+  return arr
+}`
 
   useEffect(() => {
     // setValues(props.values)

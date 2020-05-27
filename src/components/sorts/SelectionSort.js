@@ -69,20 +69,19 @@ function SelectionSort(props) {
   const header = "Selection Sort"
   const code = `function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
-    let lowest = i;
-    for (let j = i + 1; j <  arr.length; j++) {
-      if (arr[j] < arr[lowest]) {
-        lowest = j;
+    let lowest = i            // store the first element as the smallest value we've seen so far
+    for (let j = i + 1; j < arr.length; j++) {    // loop through the rest of the array
+      if (arr[j] < arr[lowest]) {     // if the current element is smaller than arr[lowest]
+        lowest = j                    // set new lowest index
       }
     }
-    if (i !== lowest) {
-      //swap
-      let temp = arr[i];
-      arr[i] = arr[lowest];
-      arr[lowest] = temp;
+    if (i !== lowest) {               // if there's a new lowest element
+      let temp = arr[i]
+      arr[i] = arr[lowest]            // in-place swap
+      arr[lowest] = temp 
     }
   }
-  return arr;
+  return arr
 }`;
 
   useEffect(() => {
