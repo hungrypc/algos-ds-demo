@@ -1,8 +1,9 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
+import Modal from '../Modal';
 
 function QuickSort(props) {
-
+  // eslint-disable-next-line
   const [values, setValues] = useState(props.values)
 
   function sketch(p) {
@@ -89,13 +90,50 @@ function QuickSort(props) {
     }
   }
 
+  const header = "Quick Sort"
+  const code = `function pivot(arr, start = 0, end = arr.length + 1) {      // pivot helper function
+  function swap(array, i, j) {          // swap helper function
+    let temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+
+  let pivot = arr[start]       // set up a pivot point 
+  let swapIndex = start        // keep track of the index to swap
+
+  for (let i = start + 1; i < arr.length; i++) {   // as we iterate through the array
+    if (pivot > arr[i]) {      // if the pivot point is larger than the current element
+      swapIndex++              // move swapIndex up 
+      swap(arr, swapIndex, i)  // and swap current element with element at the pivot index
+    }
+  }
+  swap(arr, start, swapIndex)  // finally, swap start with arr[swapIndex]
+  return swapIndex
+}
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right)    // helper returns the updated pivot index
+                                                // recursively call on subarray
+     quickSort(arr, left, pivotIndex - 1)       // to the left of that index,
+     quickSort(arr, pivotIndex + 1, right)      // and the subarray to the right of that index
+  }
+  return arr
+}`;
+
   useEffect(() => {
   }, [props.values])
 
   return (
     <Fragment>
-      <h3 className="ui top attached header">
-        Quick Sort
+      <h3 className="ui top attached header specific-sort_header">
+        <div>
+          {header}
+        </div>
+        <Modal
+          header={header}
+          code={code}
+        />
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">

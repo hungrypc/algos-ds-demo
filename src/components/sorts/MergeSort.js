@@ -1,7 +1,9 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
+import Modal from '../Modal';
 
 function MergeSort(props) {
+  // eslint-disable-next-line
   const [values, setValues] = useState(props.values)
 
   function sketch(p) {
@@ -27,14 +29,14 @@ function MergeSort(props) {
     async function merge(arr1, arr2) {
       let results = [];
       let i = 0;
-      let j = 0;      
+      let j = 0;
       count++
       states[a.indexOf(arr2[j])] = 0
-      states[a.indexOf(arr1[i])] = 0   
+      states[a.indexOf(arr1[i])] = 0
       states[a.indexOf(arr2[j], a.length - 1 - count)] = -1
       states[a.indexOf(arr1[i], a.length - 1 - count)] = -1
 
-      for (let y = 2; y < a.length - count; y++) {      
+      for (let y = 2; y < a.length - count; y++) {
         states[y] = 2
       }
 
@@ -46,13 +48,13 @@ function MergeSort(props) {
           a.push(arr1[i])
           results.push(arr1[i]);
           states[a.indexOf(arr1[i], 2)] = 1
-          i++;          
+          i++;
         } else {
           a.splice(a.indexOf(arr2[j]), 1)
           a.push(arr2[j])
           results.push(arr2[j]);
           states[a.indexOf(arr2[j], 2)] = 1
-          j++;          
+          j++;
         }
       }
 
@@ -62,7 +64,7 @@ function MergeSort(props) {
         a.push(arr1[i])
         results.push(arr1[i]);
         states[a.indexOf(arr1[i], 2)] = 1
-        i++;        
+        i++;
       }
 
       while (j < arr2.length) {
@@ -71,7 +73,7 @@ function MergeSort(props) {
         a.push(arr2[j])
         results.push(arr2[j]);
         states[a.indexOf(arr2[j], 2)] = 1
-        j++;        
+        j++;
       }
       for (let x = a.length; x >= a.length - count; x--) {
         states[x] = -1
@@ -115,12 +117,59 @@ function MergeSort(props) {
     }
   }
 
+  // Modal settings
+  const header = "Merge Sort"
+  const code = `function merge(arr1, arr2) {    // merge helper function
+  let results = []
+  let i = 0              // set two pointers
+  let j = 0
+  while (i < arr1.length && j < arr2.length) {  // as we go through both arrays
+    if (arr1[i] < arr2[j]) {
+      results.push(arr1[i])       // compare and push the smaller value
+      i++                         // and increment i/j
+    } else {
+      results.push(arr2[j])
+      j++
+    }
+  }
+
+  while (i < arr1.length) {       // if there're any elements left in arr1
+    results.push(arr1[i])
+    i++
+  }
+
+  while (j < arr2.length) {       // and if there're any elements left in arr2
+    results.push(arr2[j])
+    j++
+  }
+
+  return results
+}
+
+function mergeSort(arr) {
+  if (arr.length <= 1) {          // base case where we return an array of one element
+    return arr
+  }
+
+  let mid = Math.floor(arr.length / 2)       // cut the array in half
+  let left = mergeSort(arr.slice(0, mid))    // recursive call on left side
+  let right = mergeSort(arr.slice(mid))      // recursive call on right side
+
+  return merge(left, right)
+}`;
+
   useEffect(() => {
   }, [props.values])
   return (
     <Fragment>
-      <h3 className="ui top attached header">
-        Merge Sort
+      <h3 className="ui top attached header specific-sort_header">
+        <div>
+          {header}
+        </div>
+        <Modal
+          header={header}
+          code={code}
+        />
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">

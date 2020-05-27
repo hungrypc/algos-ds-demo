@@ -3,6 +3,7 @@ import P5Wrapper from 'react-p5-wrapper';
 import Modal from '../Modal';
 
 function InsertionSort(props) {
+  // eslint-disable-next-line
   const [values, setValues] = useState(props.values)
 
   function sketch(p) {
@@ -35,20 +36,16 @@ function InsertionSort(props) {
           if (j + 1 !== i) {
             states[j + 1] = -1
           }
-
         }
         arr[j + 1] = curr;
-
         states[j + 1] = 1
         states[i] = -1
-
       }
       for (let i = 0; i < arr.length; i++) {
         states[i] = -1
       }
       return arr;
     }
-
 
     p.draw = function () {
       p.background(0)
@@ -72,7 +69,7 @@ function InsertionSort(props) {
   const code = `function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {     // start with the second element in the array
     let currentVal = arr[i]
-    for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) { 
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) { 
       // compare the second element with the one before it and swap if necessary
       // iterate through the sorted portion to place the element in the correct place
       arr[j + 1] = arr[j]

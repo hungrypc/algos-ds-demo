@@ -3,6 +3,7 @@ import P5Wrapper from 'react-p5-wrapper';
 import Modal from '../Modal';
 
 function BubbleSort(props) {
+  // eslint-disable-next-line
   const [values, setValues] = useState(props.values)
 
   function sketch(p) {
