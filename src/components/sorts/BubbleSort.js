@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
+import Modal from '../Modal';
 
 function BubbleSort(props) {
   const [values, setValues] = useState(props.values)
@@ -73,14 +74,39 @@ function BubbleSort(props) {
     }
   }
 
+  // Modal settings
+  const header = "Bubble Sort"
+  const code = `function bubbleSort(arr) {
+  let noSwaps;
+  for (let i = arr.length; i > 0; i--) {
+    noSwaps = true;
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        noSwaps = false;
+      }
+    }
+    if (noSwaps) break;
+  }
+  return arr;
+}`;
+
   useEffect(() => {
     // setValues(props.values)
   }, [props.values])
 
   return (
     <Fragment>
-      <h3 className="ui top attached header">
-        Bubble Sort
+      <h3 className="ui top attached header specific-sort_header">
+        <div>
+          {header}
+        </div>
+        <Modal 
+          header={header} 
+          code={code}
+        />
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">

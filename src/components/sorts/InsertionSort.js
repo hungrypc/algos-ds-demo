@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
+import Modal from '../Modal';
 
 function InsertionSort(props) {
   const [values, setValues] = useState(props.values)
@@ -31,7 +32,7 @@ function InsertionSort(props) {
           await sleep(50)
           arr[j + 1] = arr[j];
           states[j] = 0
-          if (j + 1 !== i){
+          if (j + 1 !== i) {
             states[j + 1] = -1
           }
 
@@ -66,13 +67,32 @@ function InsertionSort(props) {
     }
   }
 
+  // Modal settings
+  const header = "Insertion Sort"
+  const code = `function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let currentVal = arr[i];
+    for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = currentVal;
+  }
+  return arr;
+}`;
+
   useEffect(() => {
     // setValues(props.values)
   }, [props.values])
   return (
     <Fragment>
-      <h3 className="ui top attached header">
-        Insertion Sort
+      <h3 className="ui top attached header specific-sort_header">
+        <div>
+          {header}
+        </div>
+        <Modal
+          header={header}
+          code={code}
+        />
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
+import Modal from '../Modal';
 
 function SelectionSort(props) {
   const [values, setValues] = useState(props.values)
@@ -14,7 +15,7 @@ function SelectionSort(props) {
         states[i] = -1;
       }
       if (props.run) {
-        selectionSort(a)        
+        selectionSort(a)
       }
     };
 
@@ -25,12 +26,12 @@ function SelectionSort(props) {
     async function selectionSort(arr) {
       for (let i = 0; i < arr.length; i++) {
         let lowest = i;
-        for (let j = i + 1; j <  arr.length; j++) {
+        for (let j = i + 1; j < arr.length; j++) {
           await sleep(50)
           states[j] = 0
           if (arr[j] < arr[lowest]) {
             lowest = j;
-          }          
+          }
           states[j - 1] = -1
         }
         if (i !== lowest) {
@@ -64,13 +65,39 @@ function SelectionSort(props) {
     }
   }
 
+  // Modal settings
+  const header = "Selection Sort"
+  const code = `function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let lowest = i;
+    for (let j = i + 1; j <  arr.length; j++) {
+      if (arr[j] < arr[lowest]) {
+        lowest = j;
+      }
+    }
+    if (i !== lowest) {
+      //swap
+      let temp = arr[i];
+      arr[i] = arr[lowest];
+      arr[lowest] = temp;
+    }
+  }
+  return arr;
+}`;
+
   useEffect(() => {
     // setValues(props.values)
   }, [props.values])
   return (
     <Fragment>
-      <h3 className="ui top attached header">
-        Selection Sort
+      <h3 className="ui top attached header specific-sort_header">
+        <div>
+          {header}
+        </div>
+        <Modal
+          header={header}
+          code={code}
+        />
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">

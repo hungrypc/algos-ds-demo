@@ -27,6 +27,12 @@
 .demo {
   font-family: FiraCode, monospace; }
 
+.specific-sort_header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between; }
+
 .prompt {
   margin: 10px 0;
   display: grid;
@@ -73,3 +79,6 @@
   border: 1px solid #000;
   height: 250px;
   overflow: hidden; }
+
+.modal_code {
+  font-family: FiraCode, monospace; }
