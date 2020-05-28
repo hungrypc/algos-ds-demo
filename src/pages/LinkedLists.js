@@ -1,5 +1,6 @@
 import React from 'react'
 import SinglyLinked from '../components/linkedlists/SinglyLinked'
+import DoublyLinked from '../components/linkedlists/DoublyLinked'
 
 function LinkedLists() {
   return (
@@ -9,6 +10,7 @@ function LinkedLists() {
       </h1>
       <div className="ui container">
         <SinglyLinked/>
+        <DoublyLinked/>
       </div>
     </div>
   )
