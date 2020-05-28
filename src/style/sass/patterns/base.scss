@@ -48,6 +48,17 @@
   }
 }
 
+.breakdown--brief {
+  white-space: pre;
+}
+
+.header-code {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

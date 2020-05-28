@@ -31,7 +31,8 @@ function MultiplePointers() {
   return maxSum
 }`;
 
-  const brief = "Creating a window which can either be an array or number from one position to another.  Depending on a certain condition, the window either increases or closes (and a new window is created).";
+  const brief = `Creating a window which can either be an array or number from one position to another. 
+Depending on a certain condition, the window either increases or closes (and a new window is created).`;
 
   const prompt = `Write a function called maxSubarraySum which accepts an array of integers and a number called n.
   The function should calculate the maximum sum of n consecutive elements in the array.`;

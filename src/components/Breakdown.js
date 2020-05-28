@@ -31,7 +31,7 @@ function Breakdown(props) {
       <h2 className="ui block header">
         {props.title}
       </h2>
-      <div>
+      <div className="breakdown--brief">
         {props.brief}
       </div>
       <div className="prompt">
