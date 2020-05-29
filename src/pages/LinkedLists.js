@@ -1,5 +1,6 @@
 import React from 'react'
 import SinglyLinked from '../components/linkedlists/SinglyLinked'
+import CycleDetection from '../components/linkedlists/CycleDetection'
 import DoublyLinked from '../components/linkedlists/DoublyLinked'
 
 function LinkedLists() {
@@ -10,6 +11,7 @@ function LinkedLists() {
       </h1>
       <div className="ui container">
         <SinglyLinked/>
+        <CycleDetection />
         <DoublyLinked/>
       </div>
     </div>

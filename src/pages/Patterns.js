@@ -4,6 +4,7 @@ import FreqCount from '../components/patterns/FrequencyCounter';
 import MultiplePointers from '../components/patterns/MultiplePointers';
 import SlidingWindow from '../components/patterns/SlidingWindow';
 import DivideAndConquer from '../components/patterns/DivideAndConquer';
+import CycleDetection from '../components/patterns/CycleDetection';
 
 function Patterns() {
 
@@ -17,6 +18,7 @@ function Patterns() {
         <MultiplePointers />
         <SlidingWindow />
         <DivideAndConquer />
+        <CycleDetection />
       </div>
     </div>
   )
