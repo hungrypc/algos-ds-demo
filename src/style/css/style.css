@@ -11,11 +11,15 @@
 
 .page {
   width: 100%;
-  margin-top: 80px;
+  padding-top: 80px;
   padding-bottom: 30px; }
 
 .page-header {
   font-size: 2.5rem !important; }
+
+.modal-table {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin-bottom: 20px; }
 
 @font-face {
   font-family: FiraCode;

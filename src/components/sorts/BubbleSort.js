@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
 import Modal from '../Modal';
+import BigOTable from '../BigOTable';
 
 function BubbleSort(props) {
   // eslint-disable-next-line
@@ -107,7 +108,14 @@ function BubbleSort(props) {
         <Modal 
           header={header} 
           code={code}
-        />
+        >
+          <BigOTable
+            bestTime={"O(n)"}
+            avgTime={"O(n^2)"}
+            worstTime={"O(n^2)"}
+            space={"O(n)"}
+          />
+        </Modal>
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">

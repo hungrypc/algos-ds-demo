@@ -8,6 +8,7 @@ function ModalComp(props) {
       <Modal.Header>{props.header}</Modal.Header>
       <Modal.Content image>
         <Modal.Description className="modal_code">
+          {props.children}
           <Code code={props.code}/> 
         </Modal.Description>
       </Modal.Content>
