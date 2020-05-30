@@ -12,14 +12,28 @@ function DoublyLinked() {
     0: "",
   };
 
-  const code = `function reverseList(head) {
-  const dummy
+  const code = `function isPalindrome(head) {
+  let tail = head
+  while (tail.next) {
+    tail = tail.next
+  }
+
+  while (head !== tail){
+    if (head.val !== tail.val) {
+      return false
+    } else {
+      head = head.next
+      tail = tail.prev
+    }
+  }
+
+  return true
 }`;
 
   const brief = `Doubly Linked Lists are almost identical to a singly linked list, except every node has another pointer to the previous node. 
 This allows for more flexibility, but the trade off is that it also takes up more memory.`;
 
-  const prompt = `Write a function that ...`;
+  const prompt = `Write a function that checks whether a doubly linked list of characters is a palindrome or not.`;
 
   function sketch(p) {
 
@@ -207,7 +221,7 @@ class DoublyLinkedList {
       prevClick={prevClick}
     >
       <div className="explanation__visual">
-        <div>dummy</div>
+        <div>"K"&#8644;"A"&#8644;"Y"&#8644;"A"&#8644;"K"</div>
         <div>
           <P5Wrapper sketch={sketch} />
         </div>
