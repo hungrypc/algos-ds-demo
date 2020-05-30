@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
 import Modal from '../Modal';
+import BigOTable from '../BigOTable';
 
 function SelectionSort(props) {
   // eslint-disable-next-line
@@ -97,7 +98,14 @@ function SelectionSort(props) {
         <Modal
           header={header}
           code={code}
-        />
+        >
+          <BigOTable
+            bestTime={"O(n^2)"}
+            avgTime={"O(n^2)"}
+            worstTime={"O(n^2)"}
+            space={"O(1)"}
+          />
+        </Modal>
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">

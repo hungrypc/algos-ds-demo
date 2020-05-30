@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react'
 import P5Wrapper from 'react-p5-wrapper';
 import Modal from '../Modal';
+import BigOTable from '../BigOTable';
 
 function MergeSort(props) {
   // eslint-disable-next-line
@@ -166,10 +167,17 @@ function mergeSort(arr) {
         <div>
           {header}
         </div>
-        <Modal
-          header={header}
+        <Modal 
+          header={header} 
           code={code}
-        />
+        >
+          <BigOTable
+            bestTime={"O(n log(n))"}
+            avgTime={"O(n log(n))"}
+            worstTime={"O(n log(n))"}
+            space={"O(n)"}
+          />
+        </Modal>
       </h3>
       <div className="ui attached segment">
         <div className="sorts__container">
