@@ -21,6 +21,9 @@
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   margin-bottom: 20px; }
 
+.pre-line {
+  white-space: pre-line; }
+
 @font-face {
   font-family: FiraCode;
   src: url("../fonts/FiraCode-VariableFont_wght.ttf"); }
