@@ -36,16 +36,10 @@ function Stack() {
       </h2>
       <div className="stack--details__breakdown pre-line">
         Stacks are data structures that follow the Last-In-First-Out (LIFO) principle. This means that the <strong>last</strong> item inserted into a stack is the <strong>first</strong> one to be deleted.
-        <br /><br />Elements can be added and deleted only from the top. We can think of them like a stack of books; you can remove only the top of the book, and you can add a new book on the top. In order to retrieve the third book in the stack,
-        you would have to take the fifth book off, then the fourth book, until you are able to retrieve the third book.
-        <br /> The insertion of an element into stack is called pushing. Deletion of an element from the stack is called popping.
+        <br /><br />Elements can be added and deleted only from the top. We can think of them like a stack of books; you can add a new book on the top of the (book)stack, and you can remove a book off the top. In order to retrieve the third book in the stack,
+        you would have to take the fifth book off, then the fourth book, until you retrieve the third book.
+        <br /><br />The insertion of an element into stack is called pushing. Deletion of an element from the stack is called popping.
       </div>
-      {/* <div className="prompt">
-        <i className="far fa-hand-point-right"></i>
-        <div>
-          {props.prompt}
-        </div>
-      </div> */}
       <div className="ui segment">
         <div className="ui two column grid">
           <div className="column demo">
