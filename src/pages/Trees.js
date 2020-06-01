@@ -9,13 +9,13 @@ function Trees() {
       <h1 className="ui dividing header page-header">
         Trees        
       </h1>
-      <div>
+      <div className="ui raised segment container padded">
         desc of trees (intro to trees)
       </div>
       <BinarySearchTree />
       <br/>
       <div className="ui container">
-      <h1 className="ui dividing header">
+      <h1 className="ui dividing header page-header">
         Tree Traversal
       </h1>
         <BFS />

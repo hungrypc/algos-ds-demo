@@ -7,7 +7,9 @@ function BFS() {
         Breadth First Search
       </h2>
       <div className=" ui segment attached">
-        fdsalghsad
+        <div className="ui segment container padded">
+          fdsagsdaf
+        </div>
       </div>
     </div>
   )
