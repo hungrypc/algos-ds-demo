@@ -30,6 +30,13 @@
 .introduction {
   font-size: 16px !important; }
 
+.terminology {
+  display: flex;
+  flex-direction: row; }
+  .terminology_term {
+    font-weight: 600;
+    width: 70px; }
+
 @font-face {
   font-family: FiraCode;
   src: url("../fonts/FiraCode-VariableFont_wght.ttf"); }
