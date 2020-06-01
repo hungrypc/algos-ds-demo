@@ -7,8 +7,8 @@ function BFS() {
         Breadth First Search
       </h2>
       <div className=" ui segment attached">
-        <div className="ui segment container padded">
-          fdsagsdaf
+        <div className="definition ui segment container padded">
+          Breadth First Search (BFS) is a method of exploring a tree/graph where you first explore all the nodes on one level before exploring all the nodes on the next level.
         </div>
       </div>
     </div>

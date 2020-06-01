@@ -24,6 +24,12 @@
 .pre-line {
   white-space: pre-line; }
 
+.definition {
+  font-size: 15px !important; }
+
+.introduction {
+  font-size: 16px !important; }
+
 @font-face {
   font-family: FiraCode;
   src: url("../fonts/FiraCode-VariableFont_wght.ttf"); }

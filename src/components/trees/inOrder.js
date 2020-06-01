@@ -9,9 +9,29 @@ function InOrder(props) {
   const explanationText = {
     0: "",
   };
+
   const code = ``
   const header = "InOrder"
-  const modalCode = ""
+
+  const modalCode = `class BinarySearchTree {
+  constructor() {
+    this.root = null
+  }
+
+  DFSInOrder() {
+    const current = this.root
+    const data = []
+
+    function traverse(node) {
+      if (node.left) traverse(node.left)
+      data.push(node.val)
+      if (node.right) traverse(node.right)
+    }
+    traverse(current)
+
+    return data
+  }
+}`
   const brief = ''
 
   function nextClick(idx) {

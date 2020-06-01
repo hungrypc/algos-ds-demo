@@ -9,9 +9,29 @@ function PostOrder(props) {
   const explanationText = {
     0: "",
   };
+
   const code = ``
   const header = "PostOrder"
-  const modalCode = ""
+
+  const modalCode = `class BinarySearchTree {
+  constructor() {
+    this.root = null
+  }
+
+  DFSPostOrder() {
+    const current = this.root
+    const data = []
+    
+    function traverse(node) {
+      if (node.left) traverse(node.left)
+      if (node.right) traverse(node.right)
+      data.push(node.val)
+    }
+    traverse(current)
+
+    return data
+  }
+}`
   const brief = ''
 
   function nextClick(idx) {

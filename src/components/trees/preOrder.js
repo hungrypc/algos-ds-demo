@@ -54,8 +54,9 @@ function PreOrder(props) {
   }
 
   DFSPreOrder() {
-    let current = this.root
+    const current = this.root
     const data = []
+    
     function traverse(node) {
       data.push(node.val)
       if (node.left) traverse(node.left)
