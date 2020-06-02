@@ -34,8 +34,8 @@ The idea is to move a fast pointer twice as quickly as the slow pointer. The dis
 If at some point both meet, we have found a cycle in the list. This is also known as the "tortoise and the hare algorithm".
 
 Though typically used for linked lists, the following question can utilize this algorithm.
-Because the values of the array is like a pointer that points to indices (which we can treat as nodes). Since each value is 1..n (inclusive), then the values will have to point
-to a valid index. And since there is a duplicate number, there will be a cycle.`;
+The values of the array are like pointers that point to indices (which we can treat as nodes). Since each value is 1..n (inclusive), then the values will have to point
+to a valid index. Because we are told that there is a duplicate number, there will definitely be a cycle.`;
 
   const prompt = `Given an array nums containing n+1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist.
   Assume that there is only one duplicate number, find the duplicate one.

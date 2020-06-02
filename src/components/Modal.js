@@ -4,7 +4,7 @@ import Code from './Code';
 
 function ModalComp(props) {
   return (
-    <Modal trigger={<Button size="mini" compact>View Code</Button>} >
+    <Modal trigger={<Button size="mini" primary compact>View Code</Button>} >
       <Modal.Header>{props.header}</Modal.Header>
       <Modal.Content image>
         <Modal.Description className="modal_code">

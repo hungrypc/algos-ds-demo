@@ -1,0 +1,19 @@
+.sorts__control {
+  width: 100%;
+  height: 100px;
+}
+
+.sorts .column {
+  padding: 0 10px !important;
+}
+
+.sorts__container {
+  border: 1px solid #000;
+  height: 250px;
+  overflow: hidden;
+}
+
+.modal_code {
+  font-family: FiraCode, monospace;
+}
+/*# sourceMappingURL=base.css.map */

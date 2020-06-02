@@ -38,7 +38,7 @@ function Sorts() {
         Sorting Algorithms
       </h1>
       <div className="sorts__control">
-        <button className="ui button" onClick={() => setRun(true)}>
+        <button className="ui button positive" onClick={() => setRun(true)}>
           <i className="play icon"></i>
           Run Sort
         </button>
