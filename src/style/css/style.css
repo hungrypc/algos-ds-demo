@@ -35,7 +35,12 @@
   flex-direction: row; }
   .terminology_term {
     font-weight: 600;
-    width: 70px; }
+    min-width: 70px; }
+  .terminology_def {
+    margin-left: 10px; }
+
+.heap_term {
+  width: 130px; }
 
 @font-face {
   font-family: FiraCode;

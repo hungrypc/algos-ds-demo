@@ -50,7 +50,7 @@ function Trees() {
       <div className="ui container">
         <h1 className="ui dividing header page-header">
           Tree Traversal
-      </h1>
+        </h1>
         <BFS />
         <DFS />
       </div>
