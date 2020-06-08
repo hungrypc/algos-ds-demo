@@ -1,4 +1,5 @@
 import React from 'react'
+import PriorityQueue from '../components/heaps/PriorityQueue'
 
 function Heaps() {
   return (
@@ -32,7 +33,7 @@ function Heaps() {
         </p>
       </div>
       <div className="ui container">
-        testing
+        <PriorityQueue />
       </div>
     </div>
   )
