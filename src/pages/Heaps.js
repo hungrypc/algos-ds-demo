@@ -8,7 +8,7 @@ function Heaps() {
         Binary Heaps
       </h1>
       <div className="ui raised segment container padded introduction">
-        <p>A Binary Heap is <strong>very</strong> similar to a Binary Search Tree but with a some different rules.A Binary Heap is <strong>very</strong> similar to a Binary Search Tree but with a some different rules.</p>
+        <p>A Binary Heap is <strong>very</strong> similar to a Binary Search Tree but with a some different rules.</p>
         <p><em>Like</em> a BST, a node can only have at most two children. <em>Unlike</em> a BST, the order of the nodes depends on the heap ordering property:</p>  
       
         <div className="terminology">

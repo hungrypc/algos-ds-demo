@@ -50,7 +50,8 @@
   font-size: 4rem !important; }
 
 .demo {
-  font-family: FiraCode, monospace; }
+  font-family: FiraCode, monospace;
+  font-size: 1rem; }
 
 .specific-sort_header {
   display: flex;

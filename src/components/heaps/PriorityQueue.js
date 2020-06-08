@@ -89,8 +89,8 @@ class PriorityQueue {
         <div>{header}</div>
         <Modal header={header} code={modalCode} />
       </h2>
-      <div className="ui segment attached container padded">
-        <div>For example, here is a Priority Queue using Min Binary Heap</div>
+      <div className="ui segment attached container padded definition">
+        For example, here is a Priority Queue using Min Binary Heap
       </div>
     </Fragment>
   )
